@@ -1,0 +1,32 @@
+{
+  "name": "just-a-chatin",
+  "version": "0.0.1",
+  "description": "A anonymous session messenger chat bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itclubucsmub/just-a-chatin.git"
+  },
+  "keywords": [
+    "bot",
+    "chatbot",
+    "chat"
+  ],
+  "author": "hnhtag",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itclubucsmub/just-a-chatin/issues"
+  },
+  "homepage": "https://github.com/itclubucsmub/just-a-chatin#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  }
+}

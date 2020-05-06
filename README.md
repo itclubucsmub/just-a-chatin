@@ -3,7 +3,7 @@
 ![Node.js CI](https://github.com/itclubucsmub/just-a-chatin/workflows/Node.js%20CI/badge.svg?branch=master) ![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)
 
 Just a chatting with other.
-Read development wiki [here](/wiki/). Check progress of app [here](/projects/1).
+Read development wiki [here](/wiki/). Check progress of app [here](https://github.com/itclubucsmub/just-a-chatin/projects/1).
 
 ## Continuous Development
 - Stack: heroku-18

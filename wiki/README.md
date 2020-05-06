@@ -6,7 +6,7 @@
 
 Application flow in development
 
-- [Features development wiki](/dev-features/)
+- [Features development wiki](dev-features)
 
 ## Risk of app
 

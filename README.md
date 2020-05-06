@@ -1,4 +1,6 @@
-# just-a-chatin [![Heroku](https://heroku-badge.herokuapp.com/?app=just-a-chatin)]
+# just-a-chatin
+
+![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)
 
 Just a chatting with other.
 

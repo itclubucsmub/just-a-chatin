@@ -6,6 +6,8 @@ var app = express() // creates express http server
 
 var indexRouter = require('./routes/index')
 var botWebhook = require('./routes/bot-webhook')
+// sample
+var sampleRoute = require('./routes/sample')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -16,6 +18,9 @@ app.set('view engine', 'pug')
 
 app.use('/', indexRouter)
 app.use('/webhook', botWebhook)
+
+// sample
+app.use('/sample', sampleRoute)
 
 
 // Sets server port and logs message on success

@@ -3,8 +3,7 @@ request = require('request')
 var botService = {
     verifyWebhook,
     handleMessage,
-    handlePostback,
-    callSendAPI
+    handlePostback
 }
 
 function verifyWebhook(mode, token, challenge) {
@@ -56,8 +55,21 @@ function handleMessage(sender_psid, received_message) {
         }
     }
 
-    // Sends the response message
-    callSendAPI(sender_psid, response);
+    delay(1000).then(() =>
+        // Send the sender action
+        callSenderActionAPI(sender_psid, "mark_seen"))
+
+    delay(1500).then(() =>
+        // Send the sender action
+        callSenderActionAPI(sender_psid, "typing_on"))
+
+    delay(2000).then(() =>
+        // Send the sender action
+        callSenderActionAPI(sender_psid, "typing_off"))
+
+    delay(2500).then(() =>
+        // Sends the response message
+        callSendAPI(sender_psid, response))
 }
 
 // Handles messaging_postbacks events
@@ -73,8 +85,22 @@ function handlePostback(sender_psid, received_postback) {
     } else if (payload === 'no') {
         response = { "text": "Oops, try sending another image." }
     }
-    // Send the message to acknowledge the postback
-    callSendAPI(sender_psid, response);
+
+    delay(1000).then(() =>
+        // Send the sender action
+        callSenderActionAPI(sender_psid, "mark_seen"))
+
+    delay(1500).then(() =>
+        // Send the sender action
+        callSenderActionAPI(sender_psid, "typing_on"))
+
+    delay(2000).then(() =>
+        // Send the sender action
+        callSenderActionAPI(sender_psid, "typing_off"))
+
+    delay(2500).then(() =>
+        // Send the message to acknowledge the postback
+        callSendAPI(sender_psid, response);
 }
 
 // Sends response messages via the Send API
@@ -99,6 +125,40 @@ function callSendAPI(sender_psid, response) {
         } else {
             console.error("Unable to send message:" + err);
         }
+    });
+}
+
+// Sends sender action via the Send API
+function callSenderActionAPI(sender_psid, action) {
+    // Construct the message body
+    let request_body = {
+        "recipient": {
+            "id": sender_psid
+        },
+        "sender_action": action
+    }
+
+    // Send the HTTP request to the Messenger Platform
+    request({
+        "uri": "https://graph.facebook.com/v2.6/me/messages",
+        "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        if (!err) {
+            console.log('message sent!')
+        } else {
+            console.error("Unable to send message:" + err);
+        }
+    });
+}
+
+// delay function
+function delay(ms) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve();
+        }, ms)
     });
 }
 

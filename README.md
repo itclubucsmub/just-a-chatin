@@ -5,6 +5,14 @@
 Just a chatting with other.
 Read development wiki [here](https://github.com/itclubucsmub/just-a-chatin/wiki). Check progress of app [here](https://github.com/itclubucsmub/just-a-chatin/projects/1).
 
+## Migration 
+
+Create schema
+> node scripts/migrate.js up
+
+Drop schema
+> node scripts/migrate.js down
+
 ## Continuous Development
 - Stack: heroku-18
 - Framework: Node.js
